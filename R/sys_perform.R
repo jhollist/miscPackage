@@ -12,14 +12,16 @@
 #' 
 #' @export
 sys_perform<-function(n=10, cores=1){
+  mm<-vector("numeric",n)
+  l1<-vector("numeric",n)
+  l2<-vector("numeric",n)
+  wr<-vector("numeric",n)
   for(i in 1:n){
   
     #Matrix Multiply Timining
-    mm<-vector("numeric",n)
     mm[i]<-system.time(matrix(rnorm(1000000),1000)%*%matrix(rnorm(1000000),1000))[3]
     
     #Unallocated Loop Timing
-    l1<-vector("numeric",n)
     x<-vector()
     l1[i]<-system.time(
       for(j in 1:50000)
@@ -27,7 +29,6 @@ sys_perform<-function(n=10, cores=1){
     )[3]
     
     #Allocated Loop Timing
-    l2<-vector("numeric",n)
     x<-vector("numeric",50000)
     l2[i]<-system.time(
       for(j in 1:50000)
@@ -35,11 +36,10 @@ sys_perform<-function(n=10, cores=1){
     )[3]
     
     #Write csv timing
-    wr<-vector("numeric",n)
     wr[i]<-system.time(write.csv(data.frame(rnorm(100000),rnorm(100000)),"test.csv"))[3]
     file.remove("test.csv")
   }
-  
+
   return(list(params=c(n=n,cores=cores),
               matrix.multiply=mean(mm),
               unallocated.loop=mean(l1),
