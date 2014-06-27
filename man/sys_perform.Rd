@@ -1,0 +1,22 @@
+\name{sys_perform}
+\alias{sys_perform}
+\title{sys_perform}
+\usage{
+sys_perform(n = 10, cores = 1)
+}
+\arguments{
+  \item{n}{the number of times to run the test}
+
+  \item{cores}{the number of cores to test it on}
+}
+\description{
+This function returns the time it takes to run the
+following: a big matrix multiplication, a loop without
+pre-allocated mem, a loop with pre-allocated memory, and
+writing a csv to file.  All but the file write can be tried
+on mulitple cores.  As I am not a computer scientist, I
+have no idea if these test are meaningful.  Just things I
+do a lot and wanted to see if they work faster on different
+machines.
+}
+
