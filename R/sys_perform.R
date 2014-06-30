@@ -14,7 +14,7 @@
 #' @export
 sys_perform <- function(n = 10, addTo = FALSE, file=NULL) {
     mm <- vector("numeric", n)
-    l1 <- vector("numeric", n).
+    l1 <- vector("numeric", n)
     l2 <- vector("numeric", n)
     wr <- vector("numeric", n)
     for (i in 1:n) {
