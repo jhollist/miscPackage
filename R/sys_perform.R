@@ -35,8 +35,9 @@ sys_perform <- function(n = 10, addTo = FALSE, file=NULL) {
         })[3]
         
         # Write csv timing
-        wr[i] <- system.time(write.csv(data.frame(rnorm(1e+05), rnorm(1e+05)), "test.csv"))[3]
-        file.remove("test.csv")
+        tf<-tempfile()
+        wr[i] <- system.time(write.csv(data.frame(rnorm(1e+05), rnorm(1e+05)), tf))[3]
+        file.remove(tf)
     }
     if (Sys.info()["sysname"] == "Linux") {
         mem <- strsplit(system("cat /proc/meminfo", T)[1], " ")[[1]]
@@ -52,7 +53,7 @@ sys_perform <- function(n = 10, addTo = FALSE, file=NULL) {
                                                                                                              mean(wr)))
     if(addTo){
       if(file.exists(file)){
-        write.table(out,file,row.names=FALSE,col.names=FALSE,append=T,sep=",")
+        write.table(out,file,row.names=FALSE,col.names=FALSE,append=TRUE,sep=",")
       } else {
         write.csv(out,file,row.names=FALSE)
       } 
