@@ -50,11 +50,11 @@ sys_perform <- function(n = 10, addTo = FALSE, file=NULL) {
               OS = paste(Sys.info()["sysname"], Sys.info()["release"]), Memory.GB = mem, Drive = getwd(), Number.Runs = n, matrix.multiply = mean(mm), 
               unallocated.loop = mean(l1), allocated.loop = mean(l2), write.csv = mean(wr), total.time = sum(mean(mm), mean(l1), mean(l2), 
                                                                                                              mean(wr)))
-    if(addTo){}
+    if(addTo){
       if(file.exists(file)){
-        write.csv(out,file,row.names=FALSE)
-      } else {
         write.table(out,file,row.names=FALSE,col.names=FALSE,append=T,sep=",")
+      } else {
+        write.csv(out,file,row.names=FALSE)
       } 
     }
     return(out)
