@@ -9,11 +9,12 @@
 #' @param n numeric value indicating the number of times to run the test.  Default is 10
 #' @param addTo for those on EPA network a boolean indicating wether you want 
 #'        the results added to shared csv file. Default is FALSE
+#' @param file Character string for file (and path) of output file to write results to
 #' 
 #' @export
-sys_perform <- function(n = 10, addTo = FALSE) {
+sys_perform <- function(n = 10, addTo = FALSE, file=NULL) {
     mm <- vector("numeric", n)
-    l1 <- vector("numeric", n)
+    l1 <- vector("numeric", n).
     l2 <- vector("numeric", n)
     wr <- vector("numeric", n)
     for (i in 1:n) {
@@ -49,13 +50,11 @@ sys_perform <- function(n = 10, addTo = FALSE) {
               OS = paste(Sys.info()["sysname"], Sys.info()["release"]), Memory.GB = mem, Drive = getwd(), Number.Runs = n, matrix.multiply = mean(mm), 
               unallocated.loop = mean(l1), allocated.loop = mean(l2), write.csv = mean(wr), total.time = sum(mean(mm), mean(l1), mean(l2), 
                                                                                                              mean(wr)))
-    if(addTo){
-      thefile<-"//a2626xrith008.nar.epa.gov/data/rSysPerform/epaRSysPerformance.csv"
-      thefile<-"smb://a2626xrith008.nar.epa.gov/data/rSysPerform/epaRSysPerformance.csv"
-      if(file.exists(thefile)){
-        write.csv(out,thefile,row.names=FALSE)
+    if(addTo){}
+      if(file.exists(file)){
+        write.csv(out,file,row.names=FALSE)
       } else {
-        write.table(out,thefile,row.names=FALSE,col.names=FALSE,append=T,sep=",")
+        write.table(out,file,row.names=FALSE,col.names=FALSE,append=T,sep=",")
       } 
     }
     return(out)
