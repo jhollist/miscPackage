@@ -44,7 +44,11 @@ sys_perform<-function(n=10, cores=1){
               matrix.multiply=mean(mm),
               unallocated.loop=mean(l1),
               allocated.loop=mean(l2),
-              write.csv=mean(wr)))
+              write.csv=mean(wr),
+              total.time=sum(mean(mm),
+                             mean(l1),
+                             mean(l2),
+                             mean(wr))))
   
   
 }   
