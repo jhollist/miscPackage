@@ -7,12 +7,24 @@
 #' lot and wanted to see if they work faster on different machines. 
 #' 
 #' @param n numeric value indicating the number of times to run the test.  Default is 10
-#' @param addTo for those on EPA network a boolean indicating wether you want 
-#'        the results added to shared csv file. Default is FALSE
 #' @param file Character string for file (and path) of output file to write results to
 #' 
+#' @examples
+#' #Following example will write to a shared file on ORD_public
+#' #Linux
+#' #You will need sudo rights and mount ORD_Public, like:
+#' # $sudo mkdir /mnt/ord_public
+#' # $sudo mount //V2626UMCEC501.aa.ad.epa.gov/ORD_Public$ -o username=aa\\YOURUSERNAME,
+#' #            sec=ntlmsspi,uid=YOURUSERNAME /mnt/ord_public
+#' #Linux Example then is
+#' sys_perform(file="/mnt/ord_public/jhollist/R/epa_r_sys_performance.csv")
+#' #
+#' #Windows
+#' #No need to map, the following should work
+#' sys_perform(file="O://Public//jhollist//R//epa_r_sys_performance.csv")
 #' @export
-sys_perform <- function(n = 10, addTo = FALSE, file=NULL) {
+#' 
+sys_perform <- function(n = 10, file=NULL) {
     mm <- vector("numeric", n)
     l1 <- vector("numeric", n)
     l2 <- vector("numeric", n)
@@ -51,7 +63,7 @@ sys_perform <- function(n = 10, addTo = FALSE, file=NULL) {
               OS = paste(Sys.info()["sysname"], Sys.info()["release"]), Memory.GB = mem, Drive = getwd(), Number.Runs = n, matrix.multiply = mean(mm), 
               unallocated.loop = mean(l1), allocated.loop = mean(l2), write.csv = mean(wr), total.time = sum(mean(mm), mean(l1), mean(l2), 
                                                                                                              mean(wr)))
-    if(addTo){
+    if(is.null(file)==FALSE){
       if(file.exists(file)){
         write.table(out,file,row.names=FALSE,col.names=FALSE,append=TRUE,sep=",")
       } else {
