@@ -3,19 +3,32 @@
 \alias{sys_perform}
 \title{sys_perform}
 \usage{
-sys_perform(n = 10, cores = 1)
+sys_perform(n = 10, file = NULL)
 }
 \arguments{
-\item{n}{the number of times to run the test}
+\item{n}{numeric value indicating the number of times to run the test.  Default is 10}
 
-\item{cores}{the number of cores to test it on}
+\item{file}{Character string for file (and path) of output file to write results to}
 }
 \description{
 This function returns the time it takes to run the following: a big matrix
 multiplication, a loop without pre-allocated mem, a loop with
-pre-allocated memory, and writing a csv to file.  All but the file write
-can be tried on mulitple cores.  As I am not a computer scientist, I have
-no idea if these test are meaningful.  Just things I do a lot and wanted
-to see if they work faster on different machines.
+pre-allocated memory, and writing a csv to file. As I am not a computer
+scientist, I have no idea if these test are meaningful.  Just things I do a
+lot and wanted to see if they work faster on different machines.
+}
+\examples{
+#Following example will write to a shared file on ORD_public
+#Linux
+#You will need sudo rights and mount ORD_Public, like:
+# $sudo mkdir /mnt/ord_public
+# $sudo mount //V2626UMCEC501.aa.ad.epa.gov/ORD_Public$ -o username=aa\\\\YOURUSERNAME,
+#            sec=ntlmsspi,uid=YOURUSERNAME /mnt/ord_public
+#Linux Example then is
+sys_perform(file="/mnt/ord_public/jhollist/R/epa_r_sys_performance.csv")
+#
+#Windows
+#No need to map, the following should work
+sys_perform(file="O://Public//jhollist//R//epa_r_sys_performance.csv")
 }
 
