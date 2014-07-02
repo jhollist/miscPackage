@@ -24,11 +24,13 @@ lot and wanted to see if they work faster on different machines.
 # $sudo mkdir /mnt/ord_public
 # $sudo mount //V2626UMCEC501.aa.ad.epa.gov/ORD_Public$ -o username=aa\\\\YOURUSERNAME,
 #            sec=ntlmsspi,uid=YOURUSERNAME /mnt/ord_public
+
 #Linux Example then is
 sys_perform(file="/mnt/ord_public/jhollist/R/epa_r_sys_performance.csv")
-#
+
 #Windows
+
 #No need to map, the following should work
-sys_perform(file="O://Public//jhollist//R//epa_r_sys_performance.csv")
+sys_perform(file="//aa.ad.epa.gov/ORD/ORD/DATA/Public/jhollist/R/epa_r_sys_performance.csv")
 }
 
