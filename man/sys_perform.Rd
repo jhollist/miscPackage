@@ -26,11 +26,11 @@ lot and wanted to see if they work faster on different machines.
 #            sec=ntlmsspi,uid=YOURUSERNAME /mnt/ord_public
 
 #Linux Example then is
-sys_perform(file="/mnt/ord_public/jhollist/R/epa_r_sys_performance.csv")
+sys_perform(file='/mnt/ord_public/jhollist/R/epa_r_sys_performance.csv')
 
 #Windows
 
 #No need to map, the following should work
-sys_perform(file="//aa.ad.epa.gov/ORD/ORD/DATA/Public/jhollist/R/epa_r_sys_performance.csv")
+sys_perform(file='//aa.ad.epa.gov/ORD/ORD/DATA/Public/jhollist/R/epa_r_sys_performance.csv')
 }
 
