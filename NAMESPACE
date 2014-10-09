@@ -2,4 +2,5 @@
 
 export(rma)
 export(sys_perform)
+export(word_count)
 export(ww_booze)
