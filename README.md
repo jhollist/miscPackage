@@ -12,3 +12,7 @@ install_github("miscPackage","jhollist")
 library("miscPackage")
 ```
 
+#License
+This is relased under CC0 Public Domain Dedication.  Do what you want with it.  If you use these, give me attribution if you like (it's nice), but if you don't I won't get bent out of shape.  
+
+![cc0](http://mirrors.creativecommons.org/presskit/buttons/88x31/png/cc-zero.png)
