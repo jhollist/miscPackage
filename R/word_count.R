@@ -1,4 +1,11 @@
+#' Counting Words in R
+#' 
 #' Function to count words in a text file or a character vector.
+#' 
+#' @param txt   character that either contains either a vector to count or path 
+#'              and filename of a file to count the words
+#' @param file  boolean to indicate if txt is a file or not (probably better 
+#'              way to implement, but this was quick).
 #' @export
 word_count<-function(txt,file=FALSE){
   if(file){
