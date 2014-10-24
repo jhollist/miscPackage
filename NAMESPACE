@@ -3,6 +3,7 @@
 export(cls)
 export(download_shp)
 export(extract_spatial)
+export(get_rstudiolog)
 export(rma)
 export(sys_perform)
 export(word_count)
