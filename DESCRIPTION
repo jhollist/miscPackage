@@ -8,7 +8,7 @@ Maintainer: Jeffrey W. Hollister <hollister.jeff@epa.gov>
 Description: The purpose of this package is to simply house a number of
     functions I have written that I find I use a lot.
 License: CC0
-Imports: rgdal,
+Imports:
     sp,
     magrittr,
     reshape,

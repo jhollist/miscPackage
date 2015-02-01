@@ -10,7 +10,10 @@
 #'                  used in non-interactive mode.  NOT YET IMPLEMENTED
 #' @param plot_result Boolean to plot the resulting features and selection 
 #'                    poly.
-#' @import rgdal, sp                   
+#'                    
+#' @import rgdal
+#' @import sp 
+#'                  
 #' @export
 #' @examples
 #'  x <- c(0.5, 0.5, 1.2, 1.5)
