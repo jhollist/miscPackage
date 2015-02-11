@@ -1,4 +1,5 @@
 #' function to download all available shapefile files from a URL
+#' @import RCurl
 #' @export
 download_shp<-function(shape_url,layer,outfile=layer)
 {
