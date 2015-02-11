@@ -10,6 +10,7 @@ Description: The purpose of this package is to simply house a number of
 License: CC0
 depends: rgdal,
     sp,
+    rgeos,
     magrittr,
     reshape,
     dplyr,
