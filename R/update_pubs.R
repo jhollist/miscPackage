@@ -4,7 +4,8 @@
 #' has been run before), then a new column is added with the number of new citations
 #' @export
 #' @examples
-#' update_pubs("Fn9BjfIAAAAJ","~/projects/google_scholar.csv")
+#' \dontrun{
+#' update_pubs("Fn9BjfIAAAAJ","~/projects/google_scholar.csv")}
 update_pubs<-function(id,scholar_csv){
   if(file.exists(scholar_csv)){
     y<-scholar::get_publications(id)[,1:6]

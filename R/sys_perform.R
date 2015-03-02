@@ -10,6 +10,7 @@
 #' @param file Character string for file (and path) of output file to write results to
 #' 
 #' @examples
+#' \dontrun{
 #' #Following example will write to a shared file on ORD_public
 #' #Linux
 #' #You will need sudo rights and mount ORD_Public, like:
@@ -24,6 +25,7 @@
 #' 
 #' #No need to map, the following should work
 #' sys_perform(file='//aa.ad.epa.gov/ORD/ORD/DATA/Public/jhollist/R/epa_r_sys_performance.csv')
+#' }
 #' @export
 #' 
 sys_perform <- function(n = 10, file = NULL) {

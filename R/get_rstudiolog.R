@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' x<-get_rstudiolog(c(Sys.Date()-5,Sys.Date()-1),folder="rstudio_logs",missing=TRUE)
-get_rstudiolog<-function(date_range=c(Sys.Date()-1,Sys.Date()-1),folder=".", 
+get_rstudiolog<-function(date_range=c(Sys.Date()-2,Sys.Date()-1),folder=".", 
                          missing=TRUE){
   
   # Code modified from http://cran-logs.rstudio.com/

@@ -6,11 +6,10 @@
 #' compares the resultant area and/or length measurements that result from 
 #' different projections.
 #' 
-#' @param insp An Spatial* object from the \code {sp} package.  Input CRS must
+#' @param insp An Spatial* object from the \code{sp} package.  Input CRS must
 #'             be defined 
 #' @param ...  spTransform arguments
-#' #@param proj1 a projection to test
-#' #@param units units used to report values
+#' 
 #' @export
 project_compare<-function(insp,...){
   #Need to test for CRS on insp

@@ -15,4 +15,5 @@ Imports:
     reshape,
     dplyr,
     RCurl,
-    R.utils
+    R.utils,
+    rgdal

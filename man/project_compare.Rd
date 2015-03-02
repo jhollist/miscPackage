@@ -6,16 +6,10 @@
 project_compare(insp, ...)
 }
 \arguments{
-\item{insp}{An Spatial* object from the \code {sp} package.  Input CRS must
+\item{insp}{An Spatial* object from the \code{sp} package.  Input CRS must
 be defined}
 
-\item{...}{spTransform arguments
-#}
-
-\item{proj1}{a projection to test
-#}
-
-\item{units}{units used to report values}
+\item{...}{spTransform arguments}
 }
 \description{
 Different projections represent the distortions resulting from projection
