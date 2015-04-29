@@ -16,4 +16,7 @@ Imports:
     dplyr,
     RCurl,
     R.utils,
-    rgdal
+    rgdal,
+    snowfall,
+    parallel,
+    snow

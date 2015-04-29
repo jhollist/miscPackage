@@ -8,7 +8,7 @@
 #' @param missing NOT YET IMPLEMENTED
 #' @export
 #' @examples
-#' x<-get_rstudiolog(c(Sys.Date()-5,Sys.Date()-1),folder="rstudio_logs",missing=TRUE)
+#' x<-get_rstudiolog(c(Sys.Date()-30,Sys.Date()-1),folder="rstudio_logs",missing=TRUE)
 get_rstudiolog<-function(date_range=c(Sys.Date()-2,Sys.Date()-1),folder=".", 
                          missing=TRUE){
   
@@ -22,7 +22,7 @@ get_rstudiolog<-function(date_range=c(Sys.Date()-2,Sys.Date()-1),folder=".",
   if(!file.exists(folder)){
     dir.create(folder)
   }
-  
+
   #Only get files missing from folder
   if(missing){
     current_files<-gsub(".gz","",list.files(folder))
@@ -43,7 +43,7 @@ get_rstudiolog<-function(date_range=c(Sys.Date()-2,Sys.Date()-1),folder=".",
       R.utils::gunzip(filename,overwrite=TRUE)
     }
   }
-  
+
   # rbind_all
   xdf<-dplyr::rbind_all(lapply(list.files(folder,full.names=TRUE), function(x) read.csv(x, stringsAsFactors = FALSE)))
   return(xdf)
