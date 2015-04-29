@@ -59,18 +59,18 @@ sys_perform_parallel <- function(n = 10, file = NULL, num_core = 1) {
   time <- proc.time()-t1
   result <- with(result,
                  list(User.Name = unique(User.Name),
-                      R.Version = unique(R.Version),
+                      R.Version = unique(R.version),
                       Machine.Name = unique(Machine.Name),
                       OS = unique(OS),
                       Memory.GB = unique(Memory.GB),
                       Drive = unique(Drive),
                       Number.Runs = n,
-                      Number.Cores = num_cor,
-                      matrix.multiply = (sum(matrix.multiply)/num_cor)/n,
-                      unallocated.loop = (sum(unallocated.loop)/num_cor)/n,
-                      allocated.loop = (sum(allocated.loop)/num_cor)/n,
-                      write.csv = (sum(write.csv)/num_cor)/n,
-                      avg.time = (sum(total.time)/num_cor)/n,
+                      Number.Cores = num_core,
+                      matrix.multiply = (sum(matrix.multiply)/num_core)/n,
+                      unallocated.loop = (sum(unallocated.loop)/num_core)/n,
+                      allocated.loop = (sum(allocated.loop)/num_core)/n,
+                      write.csv = (sum(write.csv)/num_core)/n,
+                      avg.time = (sum(total.time)/num_core)/n,
                       total.time = time
                       ))
   # Kill cluster
