@@ -29,6 +29,7 @@
 #' @export
 #' 
 sys_perform <- function(n = 10, file = NULL) {
+    t1 <- proc.time()
     mm <- vector("numeric", n)
     l1 <- vector("numeric", n)
     l2 <- vector("numeric", n)
@@ -63,10 +64,11 @@ sys_perform <- function(n = 10, file = NULL) {
         mem <- mem[grep("TotalVisibleMemorySize", mem)]
         mem <- round(as.numeric(gsub("[a-zA-Z=\r]", "", mem))/1048576)
     }
+    time <- proc.time() - t1
     out <- list(User.Name = Sys.info()["user"], R.version = R.version$version.string, Machine.Name = Sys.info()["nodename"], 
         OS = paste(Sys.info()["sysname"], Sys.info()["release"]), Memory.GB = mem, Drive = getwd(), Number.Runs = n, matrix.multiply = mean(mm), 
-        unallocated.loop = mean(l1), allocated.loop = mean(l2), write.csv = mean(wr), total.time = sum(mean(mm), mean(l1), mean(l2), 
-            mean(wr)), date = date())
+        unallocated.loop = mean(l1), allocated.loop = mean(l2), write.csv = mean(wr), avg.time = sum(mean(mm), mean(l1), mean(l2), 
+            mean(wr)),total.time = time[[3]], date = date())
     if (is.null(file) == FALSE) {
         if (file.exists(file)) {
             write.table(out, file, row.names = FALSE, col.names = FALSE, append = TRUE, sep = ",")

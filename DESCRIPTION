@@ -6,9 +6,10 @@ Date: 2014-06-27
 Author: Jeffrey W. Hollister
 Maintainer: Jeffrey W. Hollister <hollister.jeff@epa.gov>
 Description: The purpose of this package is to simply house a number of
-    functions I have written that I find I use a lot.
+    functions I have written and use a lot.  Some are good, some aren't...
 License: CC0
-Imports:
+Depends: snow
+mports:
     sp,
     rgeos,
     magrittr,
@@ -18,5 +19,4 @@ Imports:
     R.utils,
     rgdal,
     snowfall,
-    parallel,
-    snow
+    parallel

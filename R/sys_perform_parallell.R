@@ -28,6 +28,7 @@
 #' }
 #' @export
 #' @import snowfall
+#' @import snow
 sys_perform_parallel <- function(n = 10, file = NULL, num_core = 1) {
   t1<-proc.time()  
   # validate number of cores
@@ -55,23 +56,26 @@ sys_perform_parallel <- function(n = 10, file = NULL, num_core = 1) {
   
   # Run it
   result <- sfLapply(1:n, sf_sys_perform)
+  
+  # Summarize Results
   result <- data.frame(do.call("rbind",result))
   time <- proc.time()-t1
   result <- with(result,
-                 list(User.Name = unique(User.Name),
-                      R.Version = unique(R.version),
-                      Machine.Name = unique(Machine.Name),
-                      OS = unique(OS),
-                      Memory.GB = unique(Memory.GB),
-                      Drive = unique(Drive),
+                 list(User.Name = unique(unlist(User.Name)),
+                      R.Version = unique(unlist(R.version)),
+                      Machine.Name = unique(unlist(Machine.Name)),
+                      OS = unique(unlist(OS)),
+                      Memory.GB = unique(unlist(Memory.GB)),
+                      Drive = unique(unlist(Drive)),
                       Number.Runs = n,
                       Number.Cores = num_core,
-                      matrix.multiply = (sum(matrix.multiply)/num_core)/n,
-                      unallocated.loop = (sum(unallocated.loop)/num_core)/n,
-                      allocated.loop = (sum(allocated.loop)/num_core)/n,
-                      write.csv = (sum(write.csv)/num_core)/n,
-                      avg.time = (sum(total.time)/num_core)/n,
-                      total.time = time
+                      matrix.multiply = (sum(unlist(matrix.multiply))/num_core)/n,
+                      unallocated.loop = (sum(unlist(unallocated.loop))/num_core)/n,
+                      allocated.loop = (sum(unlist(allocated.loop))/num_core)/n,
+                      write.csv = (sum(unlist(write.csv))/num_core)/n,
+                      avg.time = (sum(unlist(avg.time))/num_core)/n,
+                      total.time = time[[3]],
+                      date = unlist(date)[1]
                       ))
   # Kill cluster
   sfStop()
