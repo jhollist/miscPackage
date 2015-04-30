@@ -9,7 +9,7 @@ Description: The purpose of this package is to simply house a number of
     functions I have written and use a lot.  Some are good, some aren't...
 License: CC0
 Depends: snow
-mports:
+Imports:
     sp,
     rgeos,
     magrittr,
