@@ -1,7 +1,7 @@
 [![travis_badge](https://travis-ci.org/jhollist/miscPackage.svg)](https://travis-ci.org/jhollist/miscPackage)
 
 #miscPackage
-A package of some functions I wrote and like to use.  As they don't really (yet) have a home in any standalone package they are here.
+A package of some functions I wrote and like to use.  As they don't really (yet) have a home in any standalone package they are here.  Not all of these are good and some may not even do what I think they do.  Use at your own risk.
 
 #Install the Package
 To install the package and gain access to the materials do the following:
