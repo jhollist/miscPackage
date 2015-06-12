@@ -8,7 +8,9 @@
 #' @param missing NOT YET IMPLEMENTED
 #' @export
 #' @examples
+#' \dontrun{
 #' x<-get_rstudiolog(c(Sys.Date()-30,Sys.Date()-1),folder="rstudio_logs",missing=TRUE)
+#' }
 get_rstudiolog<-function(date_range=c(Sys.Date()-2,Sys.Date()-1),folder=".", 
                          missing=TRUE){
   
