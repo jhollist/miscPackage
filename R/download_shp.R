@@ -2,11 +2,12 @@
 #' @import RCurl
 #' @export
 #' @examples
+#' \dontrun{
 #' download_shp("ftp://ftp.granit.sr.unh.edu/pub/GRANIT_Data/Vector_Data/Administrative_and_Political_Boundaries/d-nhsenatedists/2012","NHSenateDists2012")
 #' #Read shapefiles in SpatialPolygonsDataFrame
 #' NHBnd<-readOGR(".","NHSenateDists2012")
 #' #Plot it
-#' plot(NHBnd)
+#' plot(NHBnd)}
 download_shp<-function(shape_url,layer,outfile=layer)
 {
   #written by: jw hollister
