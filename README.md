@@ -8,7 +8,7 @@ To install the package and gain access to the materials do the following:
 ```
 install.packages("devtools")
 library("devtools")
-install_github("miscPackage","jhollist")
+install_github("jhollist/miscPackage")
 library("miscPackage")
 ```
 
