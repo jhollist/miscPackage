@@ -4,7 +4,7 @@
 \alias{download_shp}
 \title{function to download all available shapefile files from a URL}
 \usage{
-download_shp(shape_url, layer, outfile = layer)
+download_shp(shape_url, layer, outfolder = ".")
 }
 \description{
 function to download all available shapefile files from a URL

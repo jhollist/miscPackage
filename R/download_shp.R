@@ -23,20 +23,19 @@ download_shp<-function(shape_url,layer,outfolder=".")
                    ".mxs",".atx",".cpg")
   
   #Check which shapefile files exist
-  if(require(RCurl))
+  
+  xurl<-RCurl::getURL(shape_url)
+  xlogic<-NULL
+  for(i in paste(layer,shapefile_ext,sep=""))
   {
-    xurl<-getURL(shape_url)
-    xlogic<-NULL
-    for(i in paste(layer,shapefile_ext,sep=""))
-    {
-      xlogic<-c(xlogic,grepl(i,xurl))
-    }
+    xlogic<-c(xlogic,grepl(i,xurl))
+  }
     
     #Set-up list of shapefiles to download
     shapefiles<-paste(shape_url,layer,shapefile_ext,sep="")[xlogic]
     #Set-up output file names
     outfiles<-paste(outfolder,"/",layer,shapefile_ext,sep="")[xlogic]   
-  }
+ 
   #Download all shapefiles
   if(sum(xlogic)>0)
   {
