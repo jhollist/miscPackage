@@ -19,4 +19,6 @@ Imports:
     R.utils,
     rgdal,
     snowfall,
-    parallel
+    parallel,
+    httr
+    
