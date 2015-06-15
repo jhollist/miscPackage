@@ -1,5 +1,5 @@
 #' function to download all available shapefile files from a URL
-#' @import RCurl
+#' @import RCurl httr
 #' @export
 #' @examples
 #' \dontrun{
@@ -39,8 +39,7 @@ download_shp<-function(shape_url,layer,outfile=layer)
   {
     for(i in 1:length(shapefiles))
     {
-      download.file(shapefiles[i],outfiles[i],
-                    method="auto",mode="wb")
+      x<-suppressWarnings(GET(shapefiles[i],write_disk(outfiles[i],overwrite = TRUE)))
     }
   } else
   {
