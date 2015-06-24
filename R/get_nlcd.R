@@ -30,9 +30,13 @@ get_nlcd <- function(bbx=NULL,p4s=NULL){
   tmp<-tempfile()
   download.file(request_url,tmp,quiet=TRUE)
   img<-raster(rgdal::readGDAL(tmp,silent=TRUE,p4s=p4s))
-  ct<-system.file("extdata/nlcd_colortable.txt",package="miscPackage")
-  ct<-readLines(ct)
-  img@legend@colortable<-ct
+  browser()
+  ct<-system.file("extdata/nlcd_lookup.csv",package="miscPackage")
+  ct<-read.csv(ct,stringsAsFactors=FALSE)
+  ctbl<-rep("#000000",256)
+  img@legend@values<-ct$code
+  img@legend@colortable<-ctbl
+  img@legend@names<-ct$label
   file.remove(tmp)
   return(img)
 }
