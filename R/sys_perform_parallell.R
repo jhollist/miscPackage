@@ -28,7 +28,7 @@
 #' }
 #' @export
 #' @import snowfall
-#' @import snow
+#' @import parallel
 sys_perform_parallel <- function(n = 10, file = NULL, num_core = 1) {
   t1<-proc.time()  
   # validate number of cores

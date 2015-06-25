@@ -6,6 +6,8 @@
 #' @param bbx a bounding box from \code{sp}
 #' @param p4s a proj4string of projection to request image in.
 #' @return raster with NLCD colortable
+#' 
+#' @import raster
 #' @examples
 #' \dontrun{
 #' data(lake,package="quickmapr")
@@ -30,7 +32,7 @@ get_nlcd <- function(bbx=NULL,p4s=NULL){
   tmp<-tempfile()
   download.file(request_url,tmp,quiet=TRUE)
   img<-raster(rgdal::readGDAL(tmp,silent=TRUE,p4s=p4s))
-  ct<-system.file("extdata/nlcd_lookup.csv",package="miscPackage")
+  ct<-system.file("extdata/nlcd_lookup_1992.csv",package="miscPackage")
   ct<-read.csv(ct,stringsAsFactors=FALSE)
   ctbl<-rep("#000000",256)
   ctbl[ct$code+1]<-ct$hex
