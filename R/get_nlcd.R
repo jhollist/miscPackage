@@ -7,7 +7,7 @@
 #' @param p4s a proj4string of projection to request image in.
 #' @return raster with NLCD colortable
 #' 
-#' @import raster
+#' @import raster sp
 #' @examples
 #' \dontrun{
 #' data(lake,package="quickmapr")
@@ -16,11 +16,12 @@
 #' #@keywords internal
 #' @export
 get_nlcd <- function(bbx=NULL,p4s=NULL){
+  browser()
   server_url<-"http://landfire.cr.usgs.gov/arcgis/rest/services/NLCD/USGS_EDC_LandCover_NLCD/ImageServer/exportImage?"
   xdiff<-abs(bbx[1,1]-bbx[1,2])
   ydiff<-abs(bbx[2,1]-bbx[2,2])
-  width<-round(xdiff/30)
-  height<-round(ydiff/30)
+  width<-round(xdiff/30)#needs to be dealt with given p4s
+  height<-round(ydiff/30)#needs to be dealt with given p4s
   bbx_url<-paste("bbox=",bbx[1,1],",",bbx[2,1],",",bbx[1,2],",",bbx[2,2],sep="") 
   format_url<-"&format=tiff"
   pixel_url<-"&pixelType=U8&noDataInterpretation=esriNoDataMatchAny&interpolation=+RSP_BilinearInterpolation"
