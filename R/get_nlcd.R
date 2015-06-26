@@ -16,7 +16,6 @@
 #' #@keywords internal
 #' @export
 get_nlcd <- function(bbx=NULL,p4s=NULL){
-  browser()
   server_url<-"http://landfire.cr.usgs.gov/arcgis/rest/services/NLCD/USGS_EDC_LandCover_NLCD/ImageServer/exportImage?"
   xdiff<-abs(bbx[1,1]-bbx[1,2])
   ydiff<-abs(bbx[2,1]-bbx[2,2])
@@ -31,7 +30,7 @@ get_nlcd <- function(bbx=NULL,p4s=NULL){
   size_url<-paste("&size=",width,",",height,sep="")
   request_url<-paste0(server_url,bbx_url,bbx_sr_url,image_sr_url,size_url,format_url,pixel_url,file_url)
   tmp<-tempfile()
-  download.file(request_url,tmp,quiet=TRUE)
+  download.file(request_url,tmp,quiet=TRUE,method="auto",mode="wb")
   img<-raster(rgdal::readGDAL(tmp,silent=TRUE,p4s=p4s))
   ct<-system.file("extdata/nlcd_lookup_1992.csv",package="miscPackage")
   ct<-read.csv(ct,stringsAsFactors=FALSE)
