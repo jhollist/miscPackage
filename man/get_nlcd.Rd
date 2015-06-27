@@ -15,8 +15,9 @@ get_nlcd(bbx = NULL, p4s = NULL)
 raster with NLCD colortable
 }
 \description{
-Uses the USGS LANDFIRE NLCD/USGS_EDC_LandCover_NLCD (ImageServer) REST API.  Not sure
-which year this is returning...
+Uses the USGS LANDFIRE NLCD/USGS_EDC_LandCover_NLCD (ImageServer) REST API.  It appears to
+be returning the 1992 NLCD.  Resolution from this API is variable.  The function forces it
+to (approximately) 30 meters.
 }
 \examples{
 \dontrun{

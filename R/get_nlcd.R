@@ -1,7 +1,8 @@
 #' Get a NLCD from USGS LANDFIRE program
 #' 
-#' Uses the USGS LANDFIRE NLCD/USGS_EDC_LandCover_NLCD (ImageServer) REST API.  Not sure
-#' which year this is returning...
+#' Uses the USGS LANDFIRE NLCD/USGS_EDC_LandCover_NLCD (ImageServer) REST API.  It appears to 
+#' be returning the 1992 NLCD.  Resolution from this API is variable.  The function forces it
+#' to (approximately) 30 meters.
 #' 
 #' @param bbx a bounding box from \code{sp}
 #' @param p4s a proj4string of projection to request image in.
