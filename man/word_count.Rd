@@ -4,16 +4,16 @@
 \alias{word_count}
 \title{Counting Words in R}
 \usage{
-word_count(txt = NULL, file = FALSE)
+word_count(txtfile)
 }
 \arguments{
-\item{txt}{character that either contains either a vector to count or path
-and filename of a file to count the words}
-
-\item{file}{boolean to indicate if txt is a file or not (probably better
-way to implement, but this was quick).}
+\item{txtfile}{path and filename of a file to count the words}
 }
 \description{
 Function to count words in a text file or a character vector.
+}
+\examples{
+my_file <- system.file('extdata/test.Rmd',package='miscPackage')
+word_count(my_file)
 }
 

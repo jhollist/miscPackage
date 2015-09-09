@@ -4,10 +4,11 @@
 #' 
 #' @param txtfile path and filename of a file to count the words
 #' @examples 
-#' my_file <- systemfile('extdata/test.Rmd',package='miscPackage')
+#' my_file <- system.file('extdata/test.Rmd',package='miscPackage')
+#' word_count(my_file)
 #' @export
 word_count <- function(txtfile) {
-    con <- file(txt, "r", blocking = FALSE)
+    con <- file(txtfile, "r", blocking = FALSE)
     x <- readLines(con)
     
     # Remove YAML front matter on Rmd
@@ -41,6 +42,6 @@ word_count <- function(txtfile) {
         split_line <- split_line[split_line != ""]
         wrds <- wrds + length(split_line)
     }
-    
+    close(con)
     return(wrds)
 } 

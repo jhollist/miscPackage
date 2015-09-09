@@ -1,8 +1,8 @@
 Package: miscPackage
 Type: Package
 Title: Package with JWHs Miscellaneous Functions
-Version: 0.0.2.9000
-Date: 2015-05-25
+Version: 0.0.3.9000
+Date: 2015-09-09
 Author: Jeffrey W. Hollister
 Maintainer: Jeffrey W. Hollister <hollister.jeff@epa.gov>
 Description: The purpose of this package is to simply house a number of

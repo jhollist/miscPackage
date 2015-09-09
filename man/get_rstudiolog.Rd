@@ -20,7 +20,7 @@ specified folder.  Returns a data frame for all downloaded files
 }
 \examples{
 \dontrun{
-x<-get_rstudiolog(c(Sys.Date()-30,Sys.Date()-1),folder="rstudio_logs",missing=TRUE)
+x<-get_rstudiolog(c(Sys.Date()-30,Sys.Date()-1),folder='rstudio_logs',missing=TRUE)
 }
 }
 
