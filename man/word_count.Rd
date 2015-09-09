@@ -4,7 +4,7 @@
 \alias{word_count}
 \title{Counting Words in R}
 \usage{
-word_count(txt, file = FALSE)
+word_count(txt = NULL, file = FALSE)
 }
 \arguments{
 \item{txt}{character that either contains either a vector to count or path

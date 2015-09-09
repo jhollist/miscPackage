@@ -2,29 +2,45 @@
 #' 
 #' Function to count words in a text file or a character vector.
 #' 
-#' @param txt   character that either contains either a vector to count or path 
-#'              and filename of a file to count the words
-#' @param file  boolean to indicate if txt is a file or not (probably better 
-#'              way to implement, but this was quick).
+#' @param txtfile path and filename of a file to count the words
+#' @examples 
+#' my_file <- systemfile('extdata/test.Rmd',package='miscPackage')
 #' @export
-word_count<-function(txt,file=FALSE){
-  if(file){
-    con<-file(txt, "r", blocking=FALSE)
-    x<-readLines(con)
-    #Remove YAML front matter on Rmd
-    if(length(grep("---",x))>0){x<-x[-seq(1,max(grep("---",x)))]}
-    wrds<-0
-    for(line in x){
-      #Removes non character and splits
-      split_line<-strsplit(gsub("[^[:alnum:] ]", "", line), " +")[[1]]
-      #Removes empty string
-      split_line<-split_line[split_line!=""]
-      wrds<-wrds+length(split_line)
+word_count <- function(txtfile) {
+    con <- file(txt, "r", blocking = FALSE)
+    x <- readLines(con)
+    
+    # Remove YAML front matter on Rmd
+    yaml_lines <- grep("---", x)
+    if (length(yaml_lines) > 0) {
+        if (length(yaml_lines) != 2) {
+            stop("YAML header might be goofy.")
+        }
+        x <- x[-seq(yaml_lines[1], yaml_lines[2])]
     }
-  } else {
-    split_line<-strsplit(gsub("[^[:alnum:] ]", "", txt), " +")[[1]]
-    split_line<-split_line[split_line!=""]
-    wrds<-length(split_line)
-  }
-  return(wrds)
-}
+    
+    # Remove Code chunks
+    code_chunk_lines <- grep("```", x)
+    if (length(code_chunk_lines > 0)) {
+        if (length(code_chunk_lines)%%2 != 0) {
+            stop("Mismatched code chunks")
+        }
+        idx <- NULL
+        for (i in seq(2, length(code_chunk_lines), 2)) {
+            idx <- c(idx, code_chunk_lines[i - 1]:code_chunk_lines[i])
+        }
+        x <- x[-idx]
+    }
+    
+    # Count Words
+    wrds <- 0
+    for (line in x) {
+        # Removes non character and splits
+        split_line <- strsplit(gsub("[^[:alnum:] ]", "", line), " +")[[1]]
+        # Removes empty string
+        split_line <- split_line[split_line != ""]
+        wrds <- wrds + length(split_line)
+    }
+    
+    return(wrds)
+} 
