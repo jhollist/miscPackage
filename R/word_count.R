@@ -1,30 +1,42 @@
 #' Counting Words in R
 #' 
-#' Function to count words in a text file or a character vector.
+#' Function to count words in an Rmd file.  YAML headers and Code Chunks are ignored and 
+#' optional lines to skip can be included.
 #' 
-#' @param txtfile path and filename of a file to count the words
+#' @param txtfile    path and filename of a file to count the words
+#' @param skip_lines a numeric vector indicating lines of the file to skip.  
+#'                   These lines are removed prior to removing YAML and code chunks.
+#'                   Default is NULL.
+#'                  
 #' @examples 
 #' my_file <- system.file('extdata/test.Rmd',package='miscPackage')
 #' word_count(my_file)
 #' @export
-word_count <- function(txtfile) {
+word_count <- function(txtfile,skip_lines = NULL) {
     con <- file(txtfile, "r", blocking = FALSE)
     x <- readLines(con)
+    
+    #Remove skip_lines
+    if(!is.null(skip_lines)){
+      x<-x[-skip_lines]
+    }
+    
     
     # Remove YAML front matter on Rmd
     yaml_lines <- grep("---", x)
     if (length(yaml_lines) > 0) {
         if (length(yaml_lines) != 2) {
-            stop("YAML header might be goofy.")
+            warning("YAML header might be goofy. No YAML removed")
+        } else {
+          x <- x[-seq(yaml_lines[1], yaml_lines[2])]
         }
-        x <- x[-seq(yaml_lines[1], yaml_lines[2])]
     }
     
     # Remove Code chunks
     code_chunk_lines <- grep("```", x)
     if (length(code_chunk_lines > 0)) {
         if (length(code_chunk_lines)%%2 != 0) {
-            stop("Mismatched code chunks")
+            warning("Mismatched code chunks")
         }
         idx <- NULL
         for (i in seq(2, length(code_chunk_lines), 2)) {
