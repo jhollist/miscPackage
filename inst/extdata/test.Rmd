@@ -1,0 +1,20 @@
+---
+title: "Untitled"
+author: "Jeff W. Hollister"
+date: "9/9/2015"
+output: pdf_document
+---
+
+One two three, four.  Five six; seven, eight nine 10!
+
+```{r}
+summary(cars)
+```
+
+Eleven, twelve, thirteen fourteen fifteen sixteen?
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Seventeen eighteen nineteen twenty.

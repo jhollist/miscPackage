@@ -26,16 +26,16 @@ only Polygons and Points may be selected.
  x <- c(0.5, 0.5, 1.2, 1.5)
  y <- c(1.5, 0.5, 0.5, 0.5)
  xy <- cbind(x,y)
- dimnames(xy)[[1]] <- c("a", "b", "c", "d")
+ dimnames(xy)[[1]] <- c('a', 'b', 'c', 'd')
  pts <- SpatialPoints(xy)
  xpol <- c(0,1,1,0,0)
  ypol <- c(0,0,1,1,0)
  pol <- SpatialPolygons(list(
- Polygons(list(Polygon(cbind(xpol-1.05,ypol))), ID="x1"),
- Polygons(list(Polygon(cbind(xpol,ypol))), ID="x2"),
- Polygons(list(Polygon(cbind(xpol,ypol-1.05))), ID="x3"),
- Polygons(list(Polygon(cbind(xpol+1.05,ypol))), ID="x4"),
- Polygons(list(Polygon(cbind(xpol+.4, ypol+.1))), ID="x5")
+ Polygons(list(Polygon(cbind(xpol-1.05,ypol))), ID='x1'),
+ Polygons(list(Polygon(cbind(xpol,ypol))), ID='x2'),
+ Polygons(list(Polygon(cbind(xpol,ypol-1.05))), ID='x3'),
+ Polygons(list(Polygon(cbind(xpol+1.05,ypol))), ID='x4'),
+ Polygons(list(Polygon(cbind(xpol+.4, ypol+.1))), ID='x5')
  ))
  extract_spatial(pts,T)
  extract_spatial(pol,T)

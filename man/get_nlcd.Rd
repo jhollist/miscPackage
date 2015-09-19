@@ -21,7 +21,7 @@ to (approximately) 30 meters.
 }
 \examples{
 \dontrun{
-data(lake,package="quickmapr")
+data(lake,package='quickmapr')
 x_nlcd<-get_nlcd(bbox(buffer),proj4string(buffer))
 }
 #

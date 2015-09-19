@@ -12,6 +12,6 @@ has been run before), then a new column is added with the number of new citation
 }
 \examples{
 \dontrun{
-update_pubs("Fn9BjfIAAAAJ","~/projects/google_scholar.csv")}
+update_pubs('Fn9BjfIAAAAJ','~/projects/google_scholar.csv')}
 }
 

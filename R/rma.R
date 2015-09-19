@@ -4,8 +4,8 @@
 #' 
 #' @export
 #' 
-rma<-function(){
-  if(readline("Delete all objects in memory? 1 to continue, any other key to cancel: ")=="1"){
-    rm(list=ls())
-  }
-}
+rma <- function() {
+    if (readline("Delete all objects in memory? 1 to continue, any other key to cancel: ") == "1") {
+        rm(list = ls())
+    }
+} 

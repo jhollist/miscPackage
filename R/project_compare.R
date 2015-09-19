@@ -11,16 +11,12 @@
 #' @param ...  spTransform arguments
 #' 
 #' @export
-project_compare<-function(insp,...){
-  #Need to test for CRS on insp
-  
-  #Check units on
-  insp2<-sp::spTransform(insp,...)
-  myList<-list(Original=list(proj=proj4string(insp),
-                             area=rgeos::gArea(insp),
-                             perim=rgeos::gLength(insp)),
-               Projected=list(proj=proj4string(insp2),
-                              area=rgeos::gArea(insp2),
-                              perim=rgeos::gLength(insp2)))
-  return(myList)
-}
+project_compare <- function(insp, ...) {
+    # Need to test for CRS on insp
+    
+    # Check units on
+    insp2 <- sp::spTransform(insp, ...)
+    myList <- list(Original = list(proj = proj4string(insp), area = rgeos::gArea(insp), perim = rgeos::gLength(insp)), 
+        Projected = list(proj = proj4string(insp2), area = rgeos::gArea(insp2), perim = rgeos::gLength(insp2)))
+    return(myList)
+} 

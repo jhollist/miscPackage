@@ -4,16 +4,21 @@
 \alias{word_count}
 \title{Counting Words in R}
 \usage{
-word_count(txt, file = FALSE)
+word_count(txtfile, skip_lines = NULL)
 }
 \arguments{
-\item{txt}{character that either contains either a vector to count or path
-and filename of a file to count the words}
+\item{txtfile}{path and filename of a file to count the words}
 
-\item{file}{boolean to indicate if txt is a file or not (probably better
-way to implement, but this was quick).}
+\item{skip_lines}{a numeric vector indicating lines of the file to skip.
+                  These lines are removed prior to removing YAML and code chunks.
+                  Default is NULL.}
 }
 \description{
-Function to count words in a text file or a character vector.
+Function to count words in an Rmd file.  YAML headers and Code Chunks are ignored and
+optional lines to skip can be included.
+}
+\examples{
+my_file <- system.file('extdata/test.Rmd',package='miscPackage')
+word_count(my_file)
 }
 

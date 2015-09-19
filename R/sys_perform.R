@@ -66,9 +66,9 @@ sys_perform <- function(n = 10, file = NULL) {
     }
     time <- proc.time() - t1
     out <- list(User.Name = Sys.info()["user"], R.version = R.version$version.string, Machine.Name = Sys.info()["nodename"], 
-        OS = paste(Sys.info()["sysname"], Sys.info()["release"]), Memory.GB = mem, Drive = getwd(), Number.Runs = n, matrix.multiply = mean(mm), 
-        unallocated.loop = mean(l1), allocated.loop = mean(l2), write.csv = mean(wr), avg.time = sum(mean(mm), mean(l1), mean(l2), 
-            mean(wr)),total.time = time[[3]], date = date())
+        OS = paste(Sys.info()["sysname"], Sys.info()["release"]), Memory.GB = mem, Drive = getwd(), Number.Runs = n, 
+        matrix.multiply = mean(mm), unallocated.loop = mean(l1), allocated.loop = mean(l2), write.csv = mean(wr), 
+        avg.time = sum(mean(mm), mean(l1), mean(l2), mean(wr)), total.time = time[[3]], date = date())
     if (is.null(file) == FALSE) {
         if (file.exists(file)) {
             write.table(out, file, row.names = FALSE, col.names = FALSE, append = TRUE, sep = ",")

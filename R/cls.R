@@ -1,5 +1,5 @@
 #' Clear the consle
 #' @export
-cls<-function(){
-  cat("\014")
-}
+cls <- function() {
+    cat("\f")
+} 
