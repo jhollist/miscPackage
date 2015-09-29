@@ -12,7 +12,7 @@ Some tests of different cv techniques...
 \examples{
 x<-rnorm(1000,10,2)
 y<-x+rnorm(1000,0,2)
-holdout(x,y,0.75)
+holdout(x,y,0.75,1000)
 loo(x,y)
 Holdout
 }

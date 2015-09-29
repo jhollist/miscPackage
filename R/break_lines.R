@@ -55,8 +55,7 @@ break_text<-function(char_vec,width){
   }
   inline_lines <- grep("`", char_vec)
   
-  
-}    
+
     # Remove YAML front matter on Rmd
     yaml_lines <- grep("---", x)
     if (length(yaml_lines) > 0) {
