@@ -8,7 +8,7 @@ Maintainer: Jeffrey W. Hollister <hollister.jeff@epa.gov>
 Description: The purpose of this package is to simply house a number of
     functions I have written and use a lot.  Some are good, some aren't...
 License: CC0
-Depends: 
+Depends:
     R (>= 3.0)
 Imports:
     sp,
@@ -22,5 +22,4 @@ Imports:
     parallel,
     httr,
     scholar
-    
-    
+RoxygenNote: 5.0.1
