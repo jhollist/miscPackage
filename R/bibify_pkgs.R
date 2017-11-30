@@ -11,7 +11,7 @@
 #'   intermediate \code{.bib} and \code{.md} files.  Most useful if you would
 #'   like to get an output \code{.bib} or need to troubleshoot.  Default is
 #'   FALSE.
-#' @param ... Used to pass arguments to \link{rmarkdown::render}.  Most useful
+#' @param ... Used to pass arguments to \link[rmarkdown]{render}.  Most useful
 #'   for changing output format (e.g. \code{output_format = "word_document"}) or
 #'   output file name.
 #' @export
