@@ -2,6 +2,7 @@
 % Please edit documentation in R/break_lines.R, R/word_count.R
 \name{word_count}
 \alias{word_count}
+\alias{word_count}
 \title{Break lines of an input file}
 \usage{
 word_count(txtfile, skip_lines = NULL)
@@ -42,4 +43,3 @@ word_count(my_file)
 my_file <- system.file('extdata/test.Rmd',package='miscPackage')
 word_count(my_file)
 }
-

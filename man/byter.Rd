@@ -18,4 +18,3 @@ size` object (the default)}
 \description{
 Simple wrapper to object size and format.
 }
-

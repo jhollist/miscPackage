@@ -9,4 +9,3 @@ loo(x, y)
 \description{
 Leave one out
 }
-

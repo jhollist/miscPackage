@@ -9,4 +9,3 @@ ww_booze(abv, oz)
 \description{
 Calc ww points for booze
 }
-

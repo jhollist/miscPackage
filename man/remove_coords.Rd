@@ -9,4 +9,3 @@ remove_coords(sp_obj, every)
 \description{
 Simplifies a polygon by removing every n vertices
 }
-

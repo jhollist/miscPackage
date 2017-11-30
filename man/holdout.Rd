@@ -16,4 +16,3 @@ holdout(x,y,0.75,1000)
 loo(x,y)
 Holdout
 }
-

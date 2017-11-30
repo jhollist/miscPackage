@@ -19,4 +19,3 @@ measurements that result solely from the projection chosen.  This function
 compares the resultant area and/or length measurements that result from 
 different projections.
 }
-

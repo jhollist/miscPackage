@@ -41,4 +41,3 @@ only Polygons and Points may be selected.
  extract_spatial(pol,T)
  }
 }
-

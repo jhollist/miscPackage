@@ -12,4 +12,3 @@ create_poly(p4s = NULL)
 \description{
 Interactively Create Polygon from active graphics device
 }
-

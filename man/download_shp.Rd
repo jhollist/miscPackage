@@ -15,4 +15,3 @@ download_shp('ftp://ftp.granit.sr.unh.edu/pub/GRANIT_Data/Vector_Data/Administra
 download_shp('http://jwhollister.com/iale_open_science/files','LocPt')
 }
 }
-

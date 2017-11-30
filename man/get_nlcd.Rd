@@ -26,4 +26,3 @@ x_nlcd<-get_nlcd(bbox(buffer),proj4string(buffer))
 }
 #@keywords internal
 }
-

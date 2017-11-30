@@ -9,4 +9,3 @@ bbox_to_sp(sp)
 \description{
 sp bbox to poly
 }
-

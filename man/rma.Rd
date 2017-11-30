@@ -9,4 +9,3 @@ rma()
 \description{
 This function cleans up the current environment.  Simply a shortcut for rm(list=ls()).
 }
-
