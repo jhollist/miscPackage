@@ -13,3 +13,6 @@ commiting your little files!  It assumes you want to keep the big file, but
 no longer track it.  As such it does not remove the file and adds it to 
 .gitignore.
 }
+\references{
+\url{https://stackoverflow.com/a/27923526/3069901}
+}

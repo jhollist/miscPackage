@@ -6,6 +6,8 @@
 #' no longer track it.  As such it does not remove the file and adds it to 
 #' .gitignore.
 #' 
+#' @references \url{https://stackoverflow.com/a/27923526/3069901}
+#' 
 #' @param big_file
 #' @param keep_file
 #' @param ignore_file
@@ -19,6 +21,7 @@ git_oops <- function(big_file, keep_file = TRUE, ignore_file = TRUE){
     system(paste0("echo ", big_file, " >> .gitignore"))
   }
   
+  # Method borrowed from https://stackoverflow.com/a/27923526/3069901
   git_filter_branch <- paste0("git filter-branch --force --index-filter 'git rm -r --cached --ignore-unmatch ", big_file, "' --prune-empty --tag-name-filter cat -- --all")
   
   system(git_filter_branch)
