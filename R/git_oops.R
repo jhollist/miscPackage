@@ -18,6 +18,7 @@ git_oops <- function(big_file, keep_file = TRUE, ignore_file = TRUE){
   if(ignore_file){
     system(paste0("echo ", big_file, " >> .gitignore"))
   }
+  browser()
   git_filter_branch <- paste0("git filter-branch --force --index-filter \
   'git rm -r --cached --ignore-unmatch ", big_file, "' \
   --prune-empty --tag-name-filter cat -- --all")
