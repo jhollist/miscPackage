@@ -1,8 +1,22 @@
 name,oz,abv,ww_pts
 Sierra Nevada Pale Ale,12,5.6,5
-Miller Light,12,4.2,4
+Sierra Nevada Pale Ale,24,5.6,10
+Sierra Nevada Pale Ale,36,5.6,15
+Miller Light,12,4.2,3
 Miller 64,12,2.8,2
+Miller 64,24,2.8,4
+Miller 64,36,2.8,7
 Sam Adams Boston Lager,12,4.9,5
 Yellow Tail Shiraz,6,13.5,4
+Yellow Tail Shiraz,10,13.5,7
+Yellow Tail Shiraz,14,13.5,10
 Turning Leaf Cab,5,13,4
-Vodka,1.5,40,4
+Vodka,1.5,40,3
+IPA,12,6,6
+IPA,24,6,12
+IPA,36,6,18
+High Life,12,4.6,5
+Guiness,12,4.2,4
+Guiness,24,4.2,7
+Guiness,36,4.2,11
+
