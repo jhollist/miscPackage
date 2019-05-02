@@ -1,10 +1,11 @@
 #' Compound Interest
 #' 
-#' @param principal
-#' @param apr
-#' @param years
-#' @param compound
-#' @param recurr
+#' Formula to calculate compound interest with or without recurring payments
+#' @param principal starting ammound
+#' @param apr annual percentage rate (as a decimal)
+#' @param years number of years to compound
+#' @param compound frequency at which interest is compounded
+#' @param recurr recurring payments made at same frequency as compounding
 #' @export
 comp_interest <- function(principal, apr, years, compound, recurr = 0){
   if(recurr == 0){

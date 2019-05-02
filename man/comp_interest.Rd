@@ -6,6 +6,17 @@
 \usage{
 comp_interest(principal, apr, years, compound, recurr = 0)
 }
+\arguments{
+\item{principal}{starting ammound}
+
+\item{apr}{annual percentage rate (as a decimal)}
+
+\item{years}{number of years to compound}
+
+\item{compound}{frequency at which interest is compounded}
+
+\item{recurr}{recurring payments made at same frequency as compounding}
+}
 \description{
-Compound Interest
+Formula to calculate compound interest with or without recurring payments
 }
