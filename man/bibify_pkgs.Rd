@@ -4,13 +4,17 @@
 \alias{bibify_pkgs}
 \title{Generate a bibliography of packages}
 \usage{
-bibify_pkgs(pkgs, csl, keep_intermediate = FALSE, ...)
+bibify_pkgs(pkgs, csl, append_bib = NULL, keep_intermediate = FALSE,
+  ...)
 }
 \arguments{
 \item{pkgs}{A character vector of packages}
 
 \item{csl}{A csl file used to format the output bibliography.  Good place to
 look for these is \url{https://github.com/citation-style-language/styles}}
+
+\item{append_bib}{Existing \code{.bib} file to append package citations to.
+Defaults to NULL}
 
 \item{keep_intermediate}{A logical indicating if you would like to keep the
 intermediate \code{.bib} and \code{.md} files.  Most useful if you would

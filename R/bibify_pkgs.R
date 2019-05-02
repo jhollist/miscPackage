@@ -7,6 +7,8 @@
 #' @param pkgs A character vector of packages
 #' @param csl A csl file used to format the output bibliography.  Good place to
 #'   look for these is \url{https://github.com/citation-style-language/styles}
+#' @param append_bib Existing \code{.bib} file to append package citations to.
+#'   Defaults to NULL
 #' @param keep_intermediate A logical indicating if you would like to keep the
 #'   intermediate \code{.bib} and \code{.md} files.  Most useful if you would
 #'   like to get an output \code{.bib} or need to troubleshoot.  Default is
@@ -20,9 +22,15 @@
 #'                 destfile = "plos.csl")
 #' bibify_pkgs(c("dplyr","readr"),"plos.csl", output_format = "word_document",
 #'             output_file = "my_package_bib.docx")
-bibify_pkgs <- function(pkgs, csl, keep_intermediate = FALSE, ...){
-  tmpbib <- paste0(tempfile(tmpdir = "."), ".bib")
-  con <- file(tmpbib, "w+", encoding = "UTF-8")
+bibify_pkgs <- function(pkgs, csl, append_bib = NULL, keep_intermediate = FALSE, ...){
+ 
+  if(!is.null(append_bib)){
+    tmpbib <- append_bib
+    con <- file(append_bib, "a+", encoding = "UTF-8")
+  } else { 
+    tmpbib <- paste0(tempfile(tmpdir = "."), ".bib")
+    con <- file(tmpbib, "w+", encoding = "UTF-8")
+  }
   for(i in pkgs){
     ref <- toBibtex(citation(i))
     #adds an id to bib entry
@@ -46,7 +54,7 @@ bibify_pkgs <- function(pkgs, csl, keep_intermediate = FALSE, ...){
   close(con)
   
   rmarkdown::render(tmpmd, ...)
-  if(!keep_intermediate){
-    del <- file.remove(c(tmpbib, tmpmd))
+  if(!keep_intermediate & is.null(append_bib)){
+    del <- suppressWarnings(file.remove(c(tmpbib, tmpmd)))
   }
 }

@@ -2,7 +2,6 @@
 % Please edit documentation in R/break_lines.R, R/word_count.R
 \name{word_count}
 \alias{word_count}
-\alias{word_count}
 \title{Break lines of an input file}
 \usage{
 word_count(txtfile, skip_lines = NULL)

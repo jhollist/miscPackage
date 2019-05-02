@@ -4,8 +4,8 @@
 \alias{byter}
 \title{Byte Converter}
 \usage{
-byter(obj, units = c("b", "Kb", "Mb", "Gb", "B", "KB", "MB", "GB", "auto"),
-  num = FALSE, ...)
+byter(obj, units = c("b", "Kb", "Mb", "Gb", "B", "KB", "MB", "GB",
+  "auto"), num = FALSE, ...)
 }
 \arguments{
 \item{obj}{object to return size for.  Can also be a numeric (assumes bytes).}
