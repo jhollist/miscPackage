@@ -9,7 +9,7 @@ word_count(txtfile, skip_lines = NULL)
 word_count(txtfile, skip_lines = NULL)
 }
 \arguments{
-\item{txtfile}{Path and filename of a file to count the words}
+\item{txtfile}{path and filename of a file to count the words}
 
 \item{skip_lines}{a numeric vector indicating lines of the file to skip.
 These lines are removed prior to removing YAML and code chunks.
@@ -25,8 +25,6 @@ Not yet implemented.}
 
 \item{chunks}{Logical indicating whether or not code chunks should be
 included.  Not yet implemented.}
-
-\item{txtfile}{path and filename of a file to count the words}
 }
 \description{
 Function to break lines at a specified width.  Finds nearest white space to 

@@ -4,8 +4,7 @@
 \alias{bibify_pkgs}
 \title{Generate a bibliography of packages}
 \usage{
-bibify_pkgs(pkgs, csl, append_bib = NULL, keep_intermediate = FALSE,
-  ...)
+bibify_pkgs(pkgs, csl, append_bib = NULL, keep_intermediate = FALSE, ...)
 }
 \arguments{
 \item{pkgs}{A character vector of packages}

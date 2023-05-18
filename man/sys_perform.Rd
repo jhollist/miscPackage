@@ -4,7 +4,11 @@
 \alias{sys_perform}
 \title{sys_perform}
 \usage{
-sys_perform(n = 10, file = NULL)
+sys_perform(
+  n = 10,
+  cores = 1,
+  file = "C:/Users/JHollist/projects/epa_misc/sys_perfom_records.csv"
+)
 }
 \arguments{
 \item{n}{numeric value indicating the number of times to run the test.  Default is 10}
@@ -24,7 +28,7 @@ lot and wanted to see if they work faster on different machines.
 #Linux
 #You will need sudo rights and mount ORD_Public, like:
 # $sudo mkdir /mnt/ord_public
-# $sudo mount //V2626UMCEC501.aa.ad.epa.gov/ORD_Public$ -o username=aa\\\\YOURUSERNAME,
+# $sudo mount //V2626UMCEC501.aa.ad.epa.gov/ORD_Public$ -o username=aa\\YOURUSERNAME,
 #            sec=ntlmsspi,uid=YOURUSERNAME /mnt/ord_public
 
 #Linux Example then is

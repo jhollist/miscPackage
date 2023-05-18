@@ -24,7 +24,7 @@ lot and wanted to see if they work faster on different machines.
 #Linux
 #You will need sudo rights and mount ORD_Public, like:
 # $sudo mkdir /mnt/ord_public
-# $sudo mount //V2626UMCEC501.aa.ad.epa.gov/ORD_Public$ -o username=aa\\\\YOURUSERNAME,
+# $sudo mount //V2626UMCEC501.aa.ad.epa.gov/ORD_Public$ -o username=aa\\YOURUSERNAME,
 #            sec=ntlmsspi,uid=YOURUSERNAME /mnt/ord_public
 
 #Linux Example then is

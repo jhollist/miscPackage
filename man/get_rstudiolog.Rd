@@ -4,8 +4,11 @@
 \alias{get_rstudiolog}
 \title{Get RStudio Mirror logs}
 \usage{
-get_rstudiolog(date_range = c(Sys.Date() - 2, Sys.Date() - 1),
-  folder = ".", missing = TRUE)
+get_rstudiolog(
+  date_range = c(Sys.Date() - 2, Sys.Date() - 1),
+  folder = ".",
+  missing = TRUE
+)
 }
 \arguments{
 \item{missing}{NOT YET IMPLEMENTED}
