@@ -28,13 +28,13 @@
 #' }
 #' @export
 #' 
-sys_perform <- function(n = 10, file = "C:/Users/JHollist/projects/epa_misc/sys_perfom_records.csv") {
+sys_perform <- function(n = 10, cores = 1, file = "C:/Users/JHollist/projects/epa_misc/sys_perfom_records.csv") {
     t1 <- proc.time()
     mm <- vector("numeric", n)
     l1 <- vector("numeric", n)
     l2 <- vector("numeric", n)
     wr <- vector("numeric", n)
-    for (i in 1:n) {
+    futures::future_lapply(1:n, cores = cores, function(x){ 
         
         # Matrix Multiply Timining
         mm[i] <- system.time(matrix(rnorm(1e+06), 1000) %*% matrix(rnorm(1e+06), 1000))[3]
@@ -55,7 +55,7 @@ sys_perform <- function(n = 10, file = "C:/Users/JHollist/projects/epa_misc/sys_
         tf <- tempfile()
         wr[i] <- system.time(write.csv(data.frame(rnorm(1e+05), rnorm(1e+05)), tf))[3]
         file.remove(tf)
-    }
+    })
     if (Sys.info()["sysname"] == "Linux") {
         mem <- strsplit(system("cat /proc/meminfo", T)[1], " ")[[1]]
         mem <- round(as.numeric(mem[(length(mem) - 1)])/1048576)
@@ -68,7 +68,7 @@ sys_perform <- function(n = 10, file = "C:/Users/JHollist/projects/epa_misc/sys_
     out <- tibble::tibble(User.Name = Sys.info()["user"], R.version = R.version$version.string, Machine.Name = Sys.info()["nodename"], 
         OS = paste(Sys.info()["sysname"], Sys.info()["release"]), Memory.GB = mem, Drive = getwd(), Number.Runs = n, 
         matrix.multiply = mean(mm), unallocated.loop = mean(l1), allocated.loop = mean(l2), write.csv = mean(wr), 
-        avg.time = sum(mean(mm), mean(l1), mean(l2), mean(wr)), total.time = time[[3]], date = lubridate::now())
+        avg.time = sum(mean(mm), mean(l1), mean(l2), mean(wr)), total.time = time[[3]], date = lubridate::now(),parallel = cores)
     if (is.null(file) == FALSE) {
         if (file.exists(file)) {
             readr::write_csv(out, file, append = TRUE)
