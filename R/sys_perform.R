@@ -34,7 +34,7 @@ sys_perform <- function(n = 10, cores = 1, file = "C:/Users/JHollist/projects/ep
     l1 <- vector("numeric", n)
     l2 <- vector("numeric", n)
     wr <- vector("numeric", n)
-    futures::future_lapply(1:n, cores = cores, function(x){ 
+    future::future_lapply(1:n, cores = cores, function(x){ 
         
         # Matrix Multiply Timining
         mm[i] <- system.time(matrix(rnorm(1e+06), 1000) %*% matrix(rnorm(1e+06), 1000))[3]
