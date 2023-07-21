@@ -24,5 +24,8 @@ Imports:
     scholar,
     lubridate,
     readr,
-    tibble
+    tibble,
+    parallelly,
+    future,
+    future.apply
 RoxygenNote: 7.2.3
