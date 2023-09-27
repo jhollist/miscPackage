@@ -34,12 +34,15 @@ add_mirror_repo <- function(mirror_repo = one_drive_mirror(), current_repo = "."
          ignore.stderr = TRUE)
   
   current_remotes <- system("git remote -v", intern = TRUE)
+  current_remotes <- stringr::str_remove(current_remotes, "origin\t")
+  current_remotes <- stringr::str_remove(current_remotes, "\\s\\([a-z]+\\)")
   if(length(current_remotes)==0){
     stop("There are no current remotes set for this repo.  Please set a legit remote.")
   }
   
   if(length(current_remotes) < 3){
-    system(paste0('git remote set-url --add --push origin "', current_remotes, '"'),
+    remo <- unique(current_remotes)
+    system(paste0('git remote set-url --add --push origin "', remo, '"'),
            ignore.stdout = TRUE, 
            ignore.stderr = TRUE)
     system(paste0('git remote set-url --add --push origin "', mirror_repo, '"'), 
