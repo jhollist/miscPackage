@@ -25,11 +25,8 @@ Imports:
     lubridate,
     readr,
     tibble,
-<<<<<<< HEAD
-    fs
-=======
+    fs,
     parallelly,
     future,
     future.apply
->>>>>>> bf494064941386b8f7445abf109ebd0af677ac13
 RoxygenNote: 7.2.3
