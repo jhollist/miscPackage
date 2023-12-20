@@ -26,14 +26,14 @@ get_nlcd <- function(bbx = NULL, p4s = NULL) {
     format_url <- "&format=tiff"
     pixel_url <- "&pixelType=U8&noDataInterpretation=esriNoDataMatchAny&interpolation=+RSP_BilinearInterpolation"
     file_url <- "&f=image"
-    bbx_sr_url <- paste("&bboxSR={'wkt':'", rgdal::showWKT(p4s), "'}", sep = "")
-    image_sr_url <- paste("&imageSR={'wkt':'", rgdal::showWKT(p4s), "'}", sep = "")
+    bbx_sr_url <- paste("&bboxSR={'wkt':'", showWKT(p4s), "'}", sep = "")
+    image_sr_url <- paste("&imageSR={'wkt':'", showWKT(p4s), "'}", sep = "")
     size_url <- paste("&size=", width, ",", height, sep = "")
     request_url <- paste0(server_url, bbx_url, bbx_sr_url, image_sr_url, size_url, format_url, pixel_url, 
         file_url)
     tmp <- tempfile()
     download.file(request_url, tmp, quiet = TRUE, method = "auto", mode = "wb")
-    img <- raster(rgdal::readGDAL(tmp, silent = TRUE, p4s = p4s))
+    img <- raster(readGDAL(tmp, silent = TRUE, p4s = p4s))
     ct <- system.file("extdata/nlcd_lookup_1992.csv", package = "miscPackage")
     ct <- read.csv(ct, stringsAsFactors = FALSE)
     ctbl <- rep("#000000", 256)

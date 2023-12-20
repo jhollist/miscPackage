@@ -4,11 +4,7 @@
 \alias{sys_perform}
 \title{sys_perform}
 \usage{
-sys_perform(
-  n = 10,
-  cores = 1,
-  file = "C:/Users/JHollist/projects/epa_misc/sys_perfom_records.csv"
-)
+sys_perform(n = 10, cores = 1, file = NULL)
 }
 \arguments{
 \item{n}{numeric value indicating the number of times to run the test.  Default is 10}

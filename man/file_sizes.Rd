@@ -2,16 +2,16 @@
 % Please edit documentation in R/file_sizes.R
 \name{file_sizes}
 \alias{file_sizes}
-\title{Return tibble with directory size}
+\title{Return tibble with file sizes}
 \usage{
 file_sizes(path = ".", ...)
 }
 \arguments{
-\item{path}{path to return directory size}
+\item{path}{path to return file sizes}
 }
 \description{
 This function returns file sizes for all files in a directory
 }
 \examples{
-dir_size()                     
+file_sizes()                     
 }
