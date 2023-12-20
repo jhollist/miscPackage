@@ -15,7 +15,7 @@
 #' x_nlcd<-get_nlcd(bbox(buffer),proj4string(buffer))
 #' }
 #' #@keywords internal
-#' @export
+#' @noRD
 get_nlcd <- function(bbx = NULL, p4s = NULL) {
     server_url <- "http://landfire.cr.usgs.gov/arcgis/rest/services/NLCD/USGS_EDC_LandCover_NLCD/ImageServer/exportImage?"
     xdiff <- abs(bbx[1, 1] - bbx[1, 2])

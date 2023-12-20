@@ -1,6 +1,6 @@
 #' Interactively Create Polygon from active graphics device
 #' @param p4s proj.4 string for the new poly.  Should be taken from data showing in current graphics device 
-#' @export
+#' @noRD
 create_poly <- function(p4s=NULL){
   coords <- data.frame(locator()) 
   poly <- rbind(coords, coords[1, ])

@@ -1,6 +1,6 @@
 #' sp bbox to poly
 #' @param sp
-#' @export
+#' @noRD
 bbox_to_sp <- function(sp) {
     bbox <- bbox(sp)
     x <- c(bbox[1, 1], bbox[1, 1], bbox[1, 2], bbox[1, 2], bbox[1, 1])

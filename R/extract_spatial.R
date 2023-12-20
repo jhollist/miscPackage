@@ -11,10 +11,9 @@
 #' @param plot_result Boolean to plot the resulting features and selection 
 #'                    poly.
 #'                    
-#' @import rgdal
 #' @import sp 
 #'                  
-#' @export
+#' @noRD
 #' @examples
 #' \dontrun{
 #'  x <- c(0.5, 0.5, 1.2, 1.5)

@@ -12,12 +12,10 @@ Depends:
     R (>= 3.0)
 Imports:
     sp,
-    rgeos,
     raster,
     dplyr,
     RCurl,
     R.utils,
-    rgdal,
     snowfall,
     parallel,
     httr,
