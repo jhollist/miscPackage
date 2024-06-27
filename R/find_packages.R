@@ -8,7 +8,6 @@
 #' @examples 
 #' find_packages("lessons/01_rstudio.Rmd")
 find_packages <- function(file){
-  
   lines <- readr::read_lines(file)
   lines_library <- stringr::str_extract(lines, 
                                         'library\\(\\"*[:alnum:]+\\"*\\)')
@@ -21,5 +20,11 @@ find_packages <- function(file){
                                       '[:alnum:]+\\:\\:[:alnum:]+')
   lines_colon <- lines_colon[!is.na(lines_colon)]
   lines_colon <- stringr::str_replace(lines_colon, "\\:\\:[:alnum:]+", "")
-  unique(c(lines_library, lines_colon))
+  if(stringr::str_detect(file, "DESCRIPTION")){
+    desc_pgks <- desc::desc_get_deps(file)[,2]
+    pkgs <- unique(c(pkgs, lines_library, lines_colon))
+  } else {
+    pkgs <-unique(c(lines_library, lines_colon))
+  }
+  pkgs
 }
