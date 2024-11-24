@@ -19,7 +19,6 @@ Imports:
     snowfall,
     parallel,
     httr,
-    scholar,
     lubridate,
     readr,
     tibble,
