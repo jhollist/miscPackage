@@ -25,5 +25,6 @@ Imports:
     fs,
     parallelly,
     future,
-    future.apply
-RoxygenNote: 7.2.3
+    future.apply, 
+    desc
+RoxygenNote: 7.3.1
